@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: sans-serif;
+    }
+    .start {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      z-index: 10;
+      cursor: pointer;
+    }
+    .swiper {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="start" onclick="startShow()">
+  ✨ لمس کن تا خاطره شروع شود ✨
+</div>
+
+<audio id="music" src="music.mp3" loop></audio>
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="img1.jpg"></div>
+    <div class="swiper-slide"><img src="img2.jpg"></div>
+    <div class="swiper-slide"><img src="img3.jpg"></div>
+    <!-- ادامه بده -->
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+  function startShow() {
+    document.querySelector('.start').style.display = 'none';
+    document.querySelector('.swiper').style.display = 'block';
+    document.getElementById('music').play();
+
+    new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
+    });
+  }
+</script>
+
+</body>
+</html>
